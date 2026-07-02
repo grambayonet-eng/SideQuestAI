@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --deep-night: #080e1a;
+  --indigo-dark: #151b3a;
+  --midnight-indigo: #312e81;
+  --royal-indigo: #4f46e5;
+  --lavender: #a78bfa;
+  --soft-violet: #d8bcff;
+  --ghost-white: #f5f6ff;
+  --sunset-gold: #fbbf24;
+  --emerald: #22c55e;
+  --rose: #f87171;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: var(--deep-night);
+  color: var(--ghost-white);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--lavender);
+  color: white;
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translateX(-4%);
+  }
+  to {
+    transform: translateX(4%);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes ghost-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+.sky-scene {
+  background:
+    radial-gradient(
+      circle at 12% 42%,
+      rgba(251, 191, 36, 0.45),
+      transparent 14%
+    ),
+    radial-gradient(
+      circle at 78% 20%,
+      rgba(167, 139, 250, 0.35),
+      transparent 20%
+    ),
+    linear-gradient(180deg, #080e1a 0%, #151b3a 42%, #312e81 100%);
+}
+
+.glass-card {
+  border: 1px solid rgba(216, 188, 255, 0.18);
+  background: rgba(15, 23, 42, 0.58);
+  box-shadow: 0 24px 80px rgba(8, 14, 26, 0.45);
+  backdrop-filter: blur(18px);
 }
